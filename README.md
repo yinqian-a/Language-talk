@@ -135,6 +135,66 @@ if time.time() - start_time > 10:  # 修改这里的数字
 └── requirements.txt            # 依赖清单（可选）
 ```
 
+---
+
+## 🚀 一键安装命令
+
+在项目根目录下执行：
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+## 💡 按需安装建议
+
+如果你的网络环境或硬件配置有特殊需求，可以参考以下分组安装：
+
+### 最小化安装（仅核心依赖）
+
+```bash
+pip install torch torchaudio transformers modelscope sounddevice numpy keyboard
+```
+
+### 完整安装（含推荐扩展）
+
+```bash
+pip install -r requirements.txt
+```
+
+### 如果使用 GPU（CUDA 版本）
+
+PyTorch 的 GPU 版本需要单独指定安装源，建议去 [PyTorch官网](https://pytorch.org/get-started/locally/) 根据你的 CUDA 版本生成安装命令，通常是：
+
+```bash
+# 示例：CUDA 11.8 版本
+pip install torch torchaudio --index-url https://download.pytorch.org/whl/cu118
+```
+
+然后再安装其他依赖：
+
+```bash
+pip install transformers modelscope sounddevice numpy keyboard
+```
+
+### 如果使用 CPU 运行（推荐）
+
+直接使用上面的完整安装命令即可，PyTorch 会自动安装 CPU 版本。
+
+---
+
+## ⚠️ 注意事项
+
+| 问题 | 解决方法 |
+| :--- | :--- |
+| **sounddevice 安装失败** | Windows 用户需要安装 [PortAudio](https://www.portaudio.com/)，或者使用 `pip install pyaudio` 替代（但需要修改代码中的音频采集部分） |
+| **torch 下载太慢** | 使用国内镜像源：`pip install torch -i https://pypi.tuna.tsinghua.edu.cn/simple` |
+| **modelscope 依赖冲突** | 如果遇到版本冲突，可以尝试 `pip install modelscope --upgrade` |
+| **keyboard 在 Linux/macOS 需要权限** | Linux 用户可能需要 `sudo` 运行，macOS 用户需要在系统设置中授予终端辅助功能权限 |
+
+---
+
 ## ❓ 常见问题
 
 ### Q1: 提示 `sounddevice.PortAudioError` 或找不到音频设备？
