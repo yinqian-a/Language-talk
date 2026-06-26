@@ -1,0 +1,22 @@
+# 核心深度学习框架
+torch>=2.0.0
+torchaudio>=2.0.0
+
+# 模型加载与推理
+transformers>=4.37.0
+modelscope>=1.10.0
+
+# 音频处理
+sounddevice>=0.4.6
+numpy>=1.24.0
+scipy>=1.10.0
+
+# 键盘监听
+keyboard>=0.13.5
+
+# 可选：加速推理（如果使用GPU）
+# accelerate>=0.25.0
+
+# 可选：音频编解码支持（某些系统可能需要）
+# soundfile>=0.12.0
+# librosa>=0.10.0
